@@ -6,7 +6,7 @@ import com.jersey.E_banking.DAO.CustomerDAO;
 import com.jersey.E_banking.domain.Customer;
 
 public class CustomerServiceImpl implements CustomerService{
-
+	private CustomerDAO customerDAO = new CustomerDAO();
 	public CustomerServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -14,7 +14,20 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public List<Customer> getAllCustomers() {
 		// TODO Auto-generated method stub
-		return new CustomerDAO().getCustomers();
+		return customerDAO.getCustomers();
+	}
+
+	@Override
+	public Customer getCustomer(int id) {
+		// TODO Auto-generated method stub
+		return customerDAO.getCustomer(id);
+	}
+
+	@Override
+	public void createCustomer(Customer cust) {
+		System.out.println(cust);
+		 customerDAO.createCustomer(cust);
+		
 	}
 
 }

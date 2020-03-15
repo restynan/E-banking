@@ -18,6 +18,19 @@ List<Customer>customers =new ArrayList<Customer>();
 public List<Customer> getCustomers(){
 	return customers;
 }	
+
+public Customer getCustomer(int id) {
+	for(Customer cust:customers) {
+		if (cust.getId()==id) return cust;
+	}
+	return null;
+}
+
+public void createCustomer(Customer cust) {
+	customers.add(cust);
+	System.out.println("am here DEO");
+	// TODO Auto-generated method stub
 	
+}
 	
 }
