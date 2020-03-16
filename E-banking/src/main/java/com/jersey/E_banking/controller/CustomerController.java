@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -23,7 +24,7 @@ public class CustomerController {
 	}
 	
 	@GET
-	@Produces (MediaType.APPLICATION_JSON)
+	@Produces ({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
 	public List<Customer> getCustomers()
 	{ 
 		return service.getAllCustomers();
@@ -31,14 +32,14 @@ public class CustomerController {
 	
 				}
 	@GET
-	@Path("customer")
-	@Produces (MediaType.APPLICATION_JSON)
-	public Customer getCustomer(int id)
+	@Path("customer/{id}")
+	@Produces ({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
+	public Customer getCustomer(@PathParam("id") int id)
 	{ 
-		return service.getCustomer(id);
-	
+		return service.getCustomer(1);
 	
 	}
+	
 	@POST
 	@Path("customer")
 	@Consumes (MediaType.APPLICATION_JSON)
